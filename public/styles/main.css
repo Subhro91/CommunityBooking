@@ -1,0 +1,206 @@
+/* Custom styles that extend Tailwind */
+
+/* Main Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Calendar day styles */
+.calendar-day {
+    min-height: 100px;
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+/* Calendar grid */
+#calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-top: 1px solid #e2e8f0;
+    border-left: 1px solid #e2e8f0;
+}
+
+/* Calendar header */
+.grid-cols-7 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.calendar-day-number {
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-align: right;
+}
+
+.other-month {
+    background-color: #f7fafc;
+    color: #a0aec0;
+}
+
+.today {
+    background-color: #ebf8ff;
+    border: 1px solid #4299e1;
+}
+
+.selected {
+    background-color: #e6fffa;
+    border: 2px solid #38b2ac;
+}
+
+.calendar-day-status {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.status-available {
+    background-color: #c6f6d5;
+    color: #276749;
+}
+
+.status-booked {
+    background-color: #fed7d7;
+    color: #9b2c2c;
+}
+
+.status-maintenance {
+    background-color: #feebc8;
+    color: #9c4221;
+}
+
+.day-slots {
+    font-size: 0.75rem;
+    color: #4a5568;
+}
+
+/* Status badge styles */
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+.status-badge-pending {
+    background-color: #feebc8;
+    color: #9c4221;
+}
+
+.status-badge-approved {
+    background-color: #c6f6d5;
+    color: #276749;
+}
+
+.status-badge-denied {
+    background-color: #fed7d7;
+    color: #9b2c2c;
+}
+
+/* Action buttons in tables */
+.action-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    margin-right: 4px;
+}
+
+.action-btn-view {
+    color: #4299e1;
+}
+
+.action-btn-delete {
+    color: #e53e3e;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal animation */
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.modal-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-exit-active {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .calendar-day {
+        min-height: 60px;
+        padding: 4px;
+    }
+    
+    #calendar-days {
+        font-size: 0.75rem;
+    }
+    
+    .calendar-day-status {
+        font-size: 0.6rem;
+        padding: 1px 4px;
+    }
+    
+    .day-slots {
+        font-size: 0.6rem;
+    }
+    
+    /* Make the booking modal take up the full screen on mobile */
+    #booking-modal .max-w-md,
+    #confirmation-modal .max-w-md,
+    #login-modal .max-w-md,
+    #signup-modal .max-w-md {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+} 
